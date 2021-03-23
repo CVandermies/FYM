@@ -3,18 +3,37 @@
 {% block title %}Hello FymController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Bienvenue au {{ controller_name }}! ✅</h1>
+<section class="films">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'F:/Users/Charles/Documents/ECAM/4e_Applications_Web/FYM/src/Controller/FymController.php'|file_link(0) }}">src/Controller/FymController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'F:/Users/Charles/Documents/ECAM/4e_Applications_Web/FYM/templates/fym/index.html.twig'|file_link(0) }}">templates/fym/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <article>
+        <h2>Titre du film</h2>
+        <div class="metadata">catégorie Action</div>
+        <div class="content">
+            <img src="http://placehold.it/350x150" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quia amet in vitae officiis voluptatem!</p>
+            <a href="{{ path('movie_show') }}" class="btn btn-primary">Voir la fiche</a>
+        </div>
+    </article>
+    <article>
+        <h2>Titre du film</h2>
+        <div class="metadata">catégorie Action</div>
+        <div class="content">
+            <img src="http://placehold.it/350x150" alt="">
+            <p>Qui laboriosam hic nostrum temporibus ut perspiciatis incidunt, distinctio laudantium esse aspernatur, eius vitae vel.</p>
+            <a href="{{ path('movie_show') }}" class="btn btn-primary">Voir la fiche</a>
+        </div>
+    </article>
+    <article>
+        <h2>Titre du film</h2>
+        <div class="metadata">catégorie Action</div>
+        <div class="content">
+            <img src="http://placehold.it/350x150" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quia amet in vitae officiis voluptatem!</p>
+            <a href="{{ path('movie_show') }}" class="btn btn-primary">Voir la fiche</a>
+        </div>
+    </article>
+
+</section>
+
 {% endblock %}

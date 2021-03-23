@@ -17,12 +17,17 @@ class FymController extends AbstractController
             'controller_name' => 'FymController',
         ]);
     }
-    /**
-     * @Route("/", name="home")
-     */
+    
     public function home(){
         return $this->render("fym/home.html.twig", [
             'title' => "Yo les gars !",
         ]);
+    }
+
+    /**
+     * @Route("/fym/movie/12", name="movie_show")
+     */
+    public function showMovie(){
+        return $this->render("fym/showMovie.html.twig");
     }
 }
