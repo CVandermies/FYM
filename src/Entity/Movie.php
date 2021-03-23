@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\MovieRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=MovieRepository::class)
@@ -19,6 +20,7 @@ class Movie
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=2, max=100, minMessage="Your title should be at least 2 char long.")
      */
     private $title;
 
@@ -29,11 +31,14 @@ class Movie
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Assert\LessThanOrEqual(5)
+     * @Assert\Type("float")
      */
     private $rating;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Url()
      */
     private $image;
 
