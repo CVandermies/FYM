@@ -6,33 +6,19 @@
 
 <section class="films">
 
-    <article>
-        <h2>Titre du film</h2>
-        <div class="metadata">catégorie Action</div>
-        <div class="content">
-            <img src="http://placehold.it/350x150" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quia amet in vitae officiis voluptatem!</p>
-            <a href="{{ path('movie_show') }}" class="btn btn-primary">Voir la fiche</a>
-        </div>
-    </article>
-    <article>
-        <h2>Titre du film</h2>
-        <div class="metadata">catégorie Action</div>
-        <div class="content">
-            <img src="http://placehold.it/350x150" alt="">
-            <p>Qui laboriosam hic nostrum temporibus ut perspiciatis incidunt, distinctio laudantium esse aspernatur, eius vitae vel.</p>
-            <a href="{{ path('movie_show') }}" class="btn btn-primary">Voir la fiche</a>
-        </div>
-    </article>
-    <article>
-        <h2>Titre du film</h2>
-        <div class="metadata">catégorie Action</div>
-        <div class="content">
-            <img src="http://placehold.it/350x150" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quia amet in vitae officiis voluptatem!</p>
-            <a href="{{ path('movie_show') }}" class="btn btn-primary">Voir la fiche</a>
-        </div>
-    </article>
+    {% for movie in movies %}
+        
+        <article>
+            <h2>{{ movie.title }}</h2>
+            <div class="metadata">catégorie {{ movie.category }}</div>
+            <div class="content">
+                <img src="{{ movie.image }}" alt="">
+                {{ movie.content | raw}}
+                <a href="{{ path('movie_show', {id: movie.id}) }}" class="btn btn-primary">Voir la fiche</a>
+            </div>
+        </article>
+    {% endfor %}
+
 
 </section>
 
