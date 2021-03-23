@@ -16,7 +16,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="/">FYM</a>
+            <a class="navbar-brand" href="{{ path('home') }}">FYM</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -24,7 +24,10 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/fym">Films</a>
+                        <a class="nav-link" href="{{ path('fym') }}">Films</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('movie_create') }}">Ajouter film</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/fym/cat">Catégories</a>

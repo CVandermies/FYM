@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% form_theme formMovie 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+    <h1>Ajout d'un nouveau film</h1>
+
+    {{ form_start(formMovie)}}
+
+    {{ form_row(formMovie.title,{'attr':{'placeholder':"Le bon, la brute et le truand"}}) }}
+	{{ form_row(formMovie.content,{'attr':{'placeholder':"Alors que la guerre de Sécession fait rage aux Etats-Unis, trois bandits n'ont qu'une préoccupation : l'argent."}}) }}
+	{{ form_row(formMovie.rating,{'attr':{'placeholder':"4.44"}}) }}
+	{{ form_row(formMovie.image,{'attr':{'placeholder':"http://placehold.it/350x100"}}) }}
+	{{ form_row(formMovie.category,{'attr':{'placeholder':"31"}}) }}
+
+    <button type="submit" class="btn btn-success">Ajouter le film</button>
+
+    {{ form_end(formMovie)}}
+
+{% endblock %}
