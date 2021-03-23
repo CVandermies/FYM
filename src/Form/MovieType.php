@@ -16,7 +16,6 @@ class MovieType extends AbstractType
             ->add('content')
             ->add('rating')
             ->add('image')
-            ->add('category')
         ;
     }
 

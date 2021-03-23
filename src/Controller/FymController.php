@@ -32,7 +32,7 @@ class FymController extends AbstractController
      */
     public function home(){
         return $this->render("fym/home.html.twig", [
-            'title' => "Yo les gars !",
+            'title' => "Bonjour et bienvenue !",
         ]);
     }
 

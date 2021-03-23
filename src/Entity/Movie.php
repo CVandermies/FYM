@@ -42,10 +42,6 @@ class Movie
      */
     private $image;
 
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $category;
 
     public function getId(): ?int
     {
@@ -100,15 +96,4 @@ class Movie
         return $this;
     }
 
-    public function getCategory(): ?int
-    {
-        return $this->category;
-    }
-
-    public function setCategory(?int $category): self
-    {
-        $this->category = $category;
-
-        return $this;
-    }
 }

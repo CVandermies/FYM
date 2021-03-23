@@ -18,8 +18,7 @@ class MovieFixtures extends Fixture
             $movie  ->setTitle($faker->sentence())
                     ->setContent($content) 
                     ->setRating($faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 5))
-                    ->setImage("http://placehold.it/350x150")
-                    ->setCategory($faker->randomNumber());      
+                    ->setImage("http://placehold.it/350x150");   
             $manager->persist($movie);               
         }
 
