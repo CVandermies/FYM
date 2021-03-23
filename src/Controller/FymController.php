@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Movie;
+use App\Form\MovieType;
 use App\Repository\MovieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -38,20 +39,28 @@ class FymController extends AbstractController
     
     /**
      * @Route("/fym/new", name="movie_create")
+     * @Route("/fym/movie/{id}/edit", name="movie_edit")
      */
-    public function createMovie(Request $request, EntityManagerInterface $manager){
-        $movie = new Movie();
+    public function movieForm(Movie $movie = null, Request $request, EntityManagerInterface $manager){
+        //create a movie only if it doesnt exist already
+        if(!$movie){
+            $movie = new Movie();          
+        }
 
-        $form = $this->createFormBuilder($movie)
-                        ->add('title',)
-                        ->add('content',)
-                        ->add('rating',)
-                        ->add('image',)
-                        ->add('category',)
-                        ->getForm();
+        $form = $this->createForm(MovieType::class, $movie);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $manager->persist($movie);
+            $manager->flush();
+
+            return $this->redirectToRoute('movie_show', ['id' => $movie->getId()]);
+        }
 
         return $this->render("fym/createMovie.html.twig", [
-            'formMovie' => $form->createView()
+            'formMovie' => $form->createView(),
+            'editMode' => $movie->getId() !== null
         ]);    
     }
 

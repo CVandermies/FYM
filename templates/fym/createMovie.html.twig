@@ -4,8 +4,12 @@
 
 {% block body %}
 
-    <h1>Ajout d'un nouveau film</h1>
-
+    {% if editMode %}
+        <h1>Modifier un film</h1>
+    {% else %}
+        <h1>Ajout d'un nouveau film</h1>
+    {% endif %}
+    
     {{ form_start(formMovie)}}
 
     {{ form_row(formMovie.title,{'attr':{'placeholder':"Le bon, la brute et le truand"}}) }}
@@ -14,8 +18,13 @@
 	{{ form_row(formMovie.image,{'attr':{'placeholder':"http://placehold.it/350x100"}}) }}
 	{{ form_row(formMovie.category,{'attr':{'placeholder':"31"}}) }}
 
-    <button type="submit" class="btn btn-success">Ajouter le film</button>
-
+    <button type="submit" class="btn btn-success">
+        {% if editMode %}
+            Enregistrer les modifications
+        {% else %}
+            Ajouter le film
+        {% endif %}
+        </button>
     {{ form_end(formMovie)}}
 
 {% endblock %}
