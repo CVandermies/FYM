@@ -3,12 +3,17 @@
 {% block body %}
     <article>
         <h2>{{ movie.title }}</h2>
-            <div class="metadata">catégorie {{ movie.category.label }}</div>
+            <div class="metadata">Dans la catégorie <b>{{ movie.category.label }}</b></div>
+            
             <div class="content">
                 <img src="{{ movie.image }}" alt="">
-                {{ movie.content | raw}}
+                
+                <div>{{ movie.content | raw}}</div>
                 <b>{{ movie.rating }} /5</b>
+
             </div>
+        <button><a class="nav-link" href="{{ path('movie_edit', {id: movie.id }) }}">Editer</a></button>
+	    <button><a class="nav-link" href="{{ path('movie_del', {id: movie.id }) }}">Supprimer</a></button>	
     </article>
     
 {% endblock %}
