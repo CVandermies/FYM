@@ -6,6 +6,8 @@ use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * @ORM\Entity(repositoryClass=CategoryRepository::class)
@@ -16,16 +18,19 @@ class Category
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("movies:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("movies:read")
      */
     private $label;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups("movies:read")
      */
     private $description;
 
