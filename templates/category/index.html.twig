@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FymController!{% endblock %}
+
+{% block body %}
+
+<section class="categories">
+
+    {% for categories in categories %}
+        
+        <category>
+            <h2>{{ category.title }}</h2>
+
+            <div class="content">
+                {{ category.descritpion | raw}}
+                
+            </div>
+        </category>
+    {% endfor %}
+
+
+</section>
+
+{% endblock %}
