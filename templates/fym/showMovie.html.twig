@@ -13,8 +13,8 @@
                 <b>{{ movie.rating }} /5</b>
 
             </div>
-        <button><a class="nav-link" href="{{ path('movie_edit', {id: movie.id }) }}">Editer</a></button>
-	    <button><a class="nav-link" href="{{ path('movie_del', {id: movie.id }) }}">Supprimer</a></button>	
+        <a href="{{ path('movie_edit', {id: movie.id }) }}" class="btn btn-primary">Editer</a>
+        <a href="{{ path('movie_del', {id: movie.id }) }}" class="btn btn-primary">Supprimer</a>
     </article>
     
 {% endblock %}

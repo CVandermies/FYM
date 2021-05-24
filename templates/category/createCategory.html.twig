@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% form_theme formCategory 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+    {% if editMode %}
+        <h1>Modifier une catégorie</h1>
+    {% else %}
+        <h1>Ajout d'une nouvelle catégorie</h1>
+    {% endif %}
+    
+    {{ form_start(formCategory)}}
+
+    {{ form_row(formCategory.label,{'attr':{'placeholder':"Horreur"}}) }}
+	{{ form_row(formCategory.description,{'attr':{'placeholder':"Le film d'horreur est un genre cinématographique dont l'objectif est de créer un sentiment de peur, de répulsion ou d'angoisse chez le spectateur."}}) }}
+
+    <button type="submit" class="btn btn-success">
+        {% if editMode %}
+            Enregistrer les modifications
+        {% else %}
+            Ajouter la catégorie
+        {% endif %}
+        </button>
+    {{ form_end(formCategory)}}
+
+{% endblock %}

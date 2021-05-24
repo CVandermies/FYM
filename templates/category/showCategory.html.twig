@@ -15,8 +15,8 @@
                 {% endfor %}
                 </ul>
             </div>
-        <button><a class="nav-link" >Editer</a></button>
-	    <button><a class="nav-link" >Supprimer</a></button>	
+            <a href="{{ path('category_edit', {id: category.id }) }}" class="btn btn-primary">Editer</a>
+            <a href="{{ path('category_del', {id: category.id }) }}" class="btn btn-primary">Supprimer</a>	
     </article>
     
 {% endblock %}
