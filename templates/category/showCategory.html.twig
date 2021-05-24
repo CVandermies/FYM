@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <article>
+        <h2>{{ category.label }}</h2>
+            
+            <div class="content">
+                
+                <div>{{ category.description | raw}}</div> <br>
+                <p> <b>Films dans cette catégorie : </b></p>
+                <ul>
+                {% for movie in liste %}
+                    <li>{{ movie.title}}</li> 
+                    <a href="{{ path('movie_show', {id: movie.id}) }}" class="btn btn-primary">Voir la fiche</a>
+                {% endfor %}
+                </ul>
+            </div>
+        <button><a class="nav-link" >Editer</a></button>
+	    <button><a class="nav-link" >Supprimer</a></button>	
+    </article>
+    
+{% endblock %}

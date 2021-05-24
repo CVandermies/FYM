@@ -6,14 +6,15 @@
 
 <section class="categories">
 
-    {% for categories in categories %}
+    {% for category in categories %}
         
         <category>
-            <h2>{{ category.title }}</h2>
+            <h2>{{ category.label }}</h2>
 
             <div class="content">
-                {{ category.descritpion | raw}}
-                
+                {{ category.description | raw}}
+                <a href="{{ path('category_show', {id: category.id}) }}" class="btn btn-primary">Voir la catégorie</a>
+
             </div>
         </category>
     {% endfor %}

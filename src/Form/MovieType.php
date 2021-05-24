@@ -19,6 +19,7 @@ class MovieType extends AbstractType
             ->add('rating')
             ->add('image')
             ->add('category', EntityType::class, [
+                'required'   => false,
                 'class' => Category::class,
                 'choice_label' => 'label'
             ])

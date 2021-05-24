@@ -10,10 +10,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CategoryController extends AbstractController
 {
-    /**
-     * @Route("/fym/categories", name="categories")
+
+   
+
+     /**
+     * @Route("/categories", name="categoriesList")
      */
-    public function index(CategoryRepository $repo): Response
+    public function categoriesList(CategoryRepository $repo): Response
     {
         $categories = $repo->findAll();
 
@@ -22,4 +25,19 @@ class CategoryController extends AbstractController
             'categories' => $categories
         ]);
     }
+    
+    /**
+     * @Route("/category/{id}", name="category_show")
+     */
+    //show concerned category note
+    public function showCategory(Category $category)
+    {        
+        
+        return $this->render("category/showCategory.html.twig", [
+            'category' => $category,
+            'liste' => $category->getMovies()
+        ]);
+    }
+
+
 }

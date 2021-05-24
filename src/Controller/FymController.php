@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Movie;
+use App\Entity\Category;
 use App\Form\MovieType;
 use App\Repository\MovieRepository;
+use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -103,19 +105,9 @@ class FymController extends AbstractController
 
 
 
-    /**
-     * @Route("/fym/cat", name="categories")
-     */
-    public function categories(MovieRepository $repo): Response
-    {
-        
-        $movies = $repo->findAll();
 
-        return $this->render('fym/index.html.twig', [
-            'controller_name' => 'FymController',
-            'movies' => $movies
-        ]);
-    }
+
+
 
 
 }

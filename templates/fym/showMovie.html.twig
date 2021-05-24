@@ -3,8 +3,9 @@
 {% block body %}
     <article>
         <h2>{{ movie.title }}</h2>
-            <div class="metadata">Dans la catégorie <b>{{ movie.category.label }}</b></div>
-            
+            {% if movie.category is not null %}
+                <div class="metadata">Dans la catégorie <b>{{ movie.category.label }}</b></div>
+            {% endif %}  
             <div class="content">
                 <img src="{{ movie.image }}" alt="">
                 
