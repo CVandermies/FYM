@@ -6,6 +6,8 @@
 
 <section class="categories">
 
+    <br><a href="{{ path('category_create') }}" class="btn btn-lg btn-dark">Ajouter catégorie</a><br><br>
+
     {% for category in categories %}
         
         <category>
@@ -13,7 +15,7 @@
 
             <div class="content">
                 {{ category.description | raw}}
-                <a href="{{ path('category_show', {id: category.id}) }}" class="btn btn-primary">Voir la catégorie</a>
+                <a href="{{ path('category_show', {id: category.id}) }}" class="btn btn-info">Voir la catégorie</a>
 
             </div>
         </category>

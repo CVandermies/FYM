@@ -11,12 +11,12 @@
                 <ul>
                 {% for movie in liste %}
                     <li>{{ movie.title}}</li> 
-                    <a href="{{ path('movie_show', {id: movie.id}) }}" class="btn btn-primary">Voir la fiche</a>
+                    <a href="{{ path('movie_show', {id: movie.id}) }}" class="btn btn-info">Voir la fiche</a>
                 {% endfor %}
                 </ul>
             </div>
             <a href="{{ path('category_edit', {id: category.id }) }}" class="btn btn-primary">Editer</a>
-            <a href="{{ path('category_del', {id: category.id }) }}" class="btn btn-primary">Supprimer</a>	
+            <a href="{{ path('category_del', {id: category.id }) }}" class="btn btn-secondary">Supprimer</a>	
     </article>
     
 {% endblock %}

@@ -3,23 +3,27 @@
 {% block body %}
 
 <section class="films">
+    
+    <br><a href="{{ path('movie_create') }}" class="btn btn-lg btn-dark">Ajouter un film</a><br><br>
 
     {% for movie in movies %}
         
-        <article>
-            <h2>{{ movie.title }}</h2>
-
+       
+        <div class="card mb-3">
+            <h3 class="card-header">{{ movie.title }}</h3>
             {% if movie.category is not null %}
-                <div class="metadata">Catégorie <b>{{ movie.category.label }}</b></div>
-            {% endif %}  
-
-            <div class="content">
-                <img src="{{ movie.image }}" alt="">
-                {{ movie.content | raw}}
-                <a href="{{ path('movie_show', {id: movie.id}) }}" class="btn btn-primary">Voir la fiche</a>
-            </div>
-
-        </article>
+                <div class="card-body">Catégorie
+                    <a href="{{ path('category_show', {id: movie.category.id}) }}" class="card-link">{{ movie.category.label }}</a>
+                </div>
+            {% endif %}
+            <img src="{{ movie.image }}" class="d-block user-select-none" width="40%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+              
+                <div class="card-body">
+                <p class="card-text">{{ movie.content | raw}}</p>
+                <a href="{{ path('movie_show', {id: movie.id}) }}" class="btn btn-info">Voir la fiche</a>
+                </div>
+            
+        </div>
     {% endfor %}
 
 
