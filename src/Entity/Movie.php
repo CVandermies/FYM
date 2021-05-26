@@ -49,7 +49,7 @@ class Movie
     private $image;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="movies")
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="movies", cascade={"persist"})
      * @Groups("movies:read")
      */
     private $category;

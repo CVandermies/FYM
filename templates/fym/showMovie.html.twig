@@ -4,7 +4,8 @@
     <article>
         <h2>{{ movie.title }}</h2>
             {% if movie.category is not null %}
-                <div class="metadata">Dans la catégorie <b>{{ movie.category.label }}</b></div>
+                Dans la catégorie
+                <a href="{{ path('category_show', {id: movie.category.id}) }}">{{ movie.category.label }}</a>
             {% endif %}  
             <div class="content">
                 <img src="{{ movie.image }}" alt="">

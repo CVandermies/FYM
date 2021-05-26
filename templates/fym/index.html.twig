@@ -3,9 +3,10 @@
 {% block body %}
 
 <section class="films">
-    
+    <div class="d-grid gap-2">
     <br><a href="{{ path('movie_create') }}" class="btn btn-lg btn-dark">Ajouter un film</a><br><br>
-
+    </div>
+    
     {% for movie in movies %}
         
        

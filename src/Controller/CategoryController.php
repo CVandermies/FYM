@@ -83,6 +83,12 @@ class CategoryController extends AbstractController
     public function delCategory(Category $category, CategoryRepository $repo, EntityManagerInterface $manager){
         //trouver la categorie par son identifiant
         $todelete = $repo->find($category);
+
+        $moviesToChange = $todelete->getMovies();
+        foreach($moviesToChange as $movieTC){
+            $movieTC->setCategory(null);
+        }
+
         //le supprimer grâce au manager
         $manager->remove($todelete);
         $manager->flush();
