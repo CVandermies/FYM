@@ -36,6 +36,7 @@ class Category
 
     /**
      * @ORM\OneToMany(targetEntity=Movie::class, mappedBy="category")
+     * @Groups("movies:read")
      */
     private $movies;
 

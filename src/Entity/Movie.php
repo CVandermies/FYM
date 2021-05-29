@@ -50,7 +50,7 @@ class Movie
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="movies", cascade={"persist"})
-     * @Groups("movies:read")
+     
      */
     private $category;
 
