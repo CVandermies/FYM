@@ -151,22 +151,22 @@ class ApiFymController extends AbstractController
     }
 
     /**
-     * @Route("/api/fym/add", name="api_fym_create", methods={"POST"}) 
+     * @Route("/api/fym/{id_cat}", name="api_fym_create", methods={"POST"}) 
      */
 
-    public function createMovie(Request $request, EntityManagerInterface $em, ValidatorInterface $validator, CategoryRepository $cr)
+    public function createMovie($id_cat = null, Request $request, EntityManagerInterface $em, SerializerInterface $serializer, ValidatorInterface $validator, CategoryRepository $cr)
     {
-        $data = json_decode($request->getContent());
+        $jsonRecu = $request->getContent();
         try {
-            $em = $this->getDoctrine()->getManager();
-            $movie= new Movie();
-    
-            $movie->setTitle($data->title);
-            $movie->setContent($data->content);
-            $movie->setRating($data->rating);
-            $movie->setImage($data->image);
-            $category= $cr->find($data->category_id);
-            $movie->setCategory($category);
+            $movie = $serializer->deserialize($jsonRecu, Movie::class, 'json');
+            
+            $category= $cr->find($id_cat);
+            if ($category == null){
+                return $this->json([
+                    'status' => 400,
+                    'message' => "Aucune categorie correspondant a cet ID"], 400
+                );
+            }
 
             $category->addMovie($movie);
             $errors = $validator-> validate($movie);
